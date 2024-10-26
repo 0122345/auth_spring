@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h2 th:text="${user.id == null ? 'Create User' : 'Edit User'}"></h2>
+        <form th:action="${user.id == null ? '/admin/users/create' : '/admin/users/edit/' + user.id}" 
+              method="post" 
+              th:object="${user}">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" th:field="*{username}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" th:field="*{firstName}" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" th:field="*{lastName}" required>
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" th:field="*{phoneNumber}" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" th:field="*{role}" required>
+                    <option th:each="role : ${T(com.yourpackage.model.Role).values()}"
+                            th:value="${role}"
+                            th:text="${role.name}">
+                    </option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Save</button>
+            <a th:href="@{/admin/users}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

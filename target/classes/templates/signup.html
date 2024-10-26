@@ -26,17 +26,16 @@
         <p>Already have an account? <a th:href="@{/login}">Login</a></p>
     </div>
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-            const buto = document.getElementById('button_submit');
-            if(buto) {
-                buto.addEventListener('click', function(e) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('button_submit');
+            if(submitButton) {
+                submitButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    alert("You have successfuly signed up!");
-                    window.location.href = '/admin/users.html'
+                    const form = document.querySelector('form');
+                    form.submit();
                 });
-                console.log(buto)
-            } else console.error("Button not found")
-         })
+            }
+        });
     </script>
 </body>
 </html>

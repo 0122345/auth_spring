@@ -20,25 +20,25 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-      @Bean
-      public SecurityFilterChain securityFilterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-          http
-              .authorizeHttpRequests(authorize -> authorize
-                  .requestMatchers(mvc.pattern("/"), mvc.pattern("/index"), mvc.pattern("/signup"), mvc.pattern("/css/**")).permitAll()
-                  .requestMatchers(mvc.pattern("/admin/**")).hasAnyRole("ADMIN", "USER")
-                  .anyRequest().authenticated()
-              )
-              .formLogin(form -> form
-                  .loginPage("/login")
-                  .permitAll()
-                  .defaultSuccessUrl("/admin/users", true)
-              )
-              .logout(logout -> logout
-                  .permitAll()
-              );
+              @Bean
+              public SecurityFilterChain securityFilterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+                  http
+                          .authorizeHttpRequests(authorize -> authorize
+                                  .requestMatchers(mvc.pattern("/"), mvc.pattern("/index"), mvc.pattern("/signup"), mvc.pattern("/css/**")).permitAll()
+                                  .requestMatchers(mvc.pattern("/admin/**")).hasAnyRole("ADMIN", "USER")
+                                  .anyRequest().authenticated()
+                          )
+                          .formLogin(login -> login
+                                  .loginPage("/login")
+                                  .defaultSuccessUrl("/admin/users", true)
+                                  .permitAll()
+                          )
+                          .logout(logout -> logout
+                                  .permitAll()
+                          );
 
-          return http.build();
-      }
+                  return http.build();
+              }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
