@@ -1,0 +1,142 @@
+{"properties": [
+  {
+    "name": "upload.path",
+    "type": "java.lang.String",
+    "description": "A description for 'upload.path'"
+  },
+  {
+    "name": "main.allow-bean-definition-overriding",
+    "type": "java.lang.String",
+    "description": "A description for 'main.allow-bean-definition-overriding'"
+  },
+  {
+    "name": "servlet.multipart.max-file-size",
+    "type": "java.lang.String",
+    "description": "A description for 'servlet.multipart.max-file-size'"
+  },
+  {
+    "name": "servlet.multipart.max-request-size",
+    "type": "java.lang.String",
+    "description": "A description for 'servlet.multipart.max-request-size'"
+  },
+  {
+    "name": "messages.basename",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.basename'"
+  },
+  {
+    "name": "messages.encoding",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.encoding'"
+  },
+  {
+    "name": "messages.en.site.title",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.site.title'"
+  },
+  {
+    "name": "messages.en.site.logo",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.site.logo'"
+  },
+  {
+    "name": "messages.en.nav.signup",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.nav.signup'"
+  },
+  {
+    "name": "messages.en.nav.home",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.nav.home'"
+  },
+  {
+    "name": "messages.en.nav.featured",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.nav.featured'"
+  },
+  {
+    "name": "messages.en.nav.about",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.nav.about'"
+  },
+  {
+    "name": "messages.en.nav.login",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.nav.login'"
+  },
+  {
+    "name": "messages.en.hero.title",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.hero.title'"
+  },
+  {
+    "name": "messages.en.hero.subtitle",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.hero.subtitle'"
+  },
+  {
+    "name": "messages.en.hero.cta",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.hero.cta'"
+  },
+  {
+    "name": "messages.en.featured.title",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.featured.title'"
+  },
+  {
+    "name": "messages.en.car1.title",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.car1.title'"
+  },
+  {
+    "name": "messages.en.about.title",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.about.title'"
+  },
+  {
+    "name": "messages.en.car1.description",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.car1.description'"
+  },
+  {
+    "name": "messages.en.about.description",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.about.description'"
+  },
+  {
+    "name": "messages.en.footer.copyright",
+    "type": "java.lang.String",
+    "description": "A description for 'messages.en.footer.copyright'"
+  },
+  {
+    "name": "mail.host",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.host'"
+  },
+  {
+    "name": "mail.port",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.port'"
+  },
+  {
+    "name": "mail.username",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.username'"
+  },
+  {
+    "name": "mail.password",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.password'"
+  },
+  {
+    "name": "mail.properties.mail.smtp.auth",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.properties.mail.smtp.auth'"
+  },
+  {
+    "name": "mail.properties.mail.smtp.starttls.enable",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.properties.mail.smtp.starttls.enable'"
+  }
+]}

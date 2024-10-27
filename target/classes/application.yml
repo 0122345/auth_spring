@@ -1,4 +1,9 @@
 spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
   web:
     resources:
       add-mappings: true
@@ -11,73 +16,66 @@ spring:
     user:
       name: user
       password: password
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: 
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
 
 server:
   error:
     whitelabel:
       enabled: false
   port: 8080
- 
+
 logging:
   level:
     root: INFO
     org.springframework.web: DEBUG
     org.hibernate: ERROR
+
 mail:
-    host: smtp.gmail.com
-    port: 587
-    username: your-email@gmail.com
-    password: your-app-specific-password
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+  host: smtp.gmail.com
+  port: 587
+  username: your-email@gmail.com
+  password: your-app-specific-password
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+
 servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
 
 upload:
   path: uploads
 
-spring:
-  messages:
-    basename: messages
-    encoding: UTF-8
-
 messages:
+  basename: messages
+  encoding: UTF-8
   en:
-    site.title: CarHub - Your Ultimate Car Destination
-    site.logo: CarHub
-    nav.home: Home
-    nav.featured: Featured Cars
-    nav.about: About Us
-    nav.login: Login
-    nav.signup: Sign Up
-    hero.title: Welcome to CarHub
-    hero.subtitle: Discover Your Dream Car Today
-    hero.cta: Explore Cars
-    featured.title: Featured Cars
-    car1.title: Luxury Sedan
-    car1.description: Experience ultimate comfort and style
-    about.title: About CarHub
-    about.description: CarHub is your one-stop destination for all things automotive...
-    footer.copyright: © 2023 CarHub. All rights reserved.
+    site:
+      title: CarHub - Your Ultimate Car Destination
+      logo: CarHub
+    nav:
+      home: Home
+      featured: Featured Cars
+      about: About Us
+      login: Login
+      signup: Sign Up
+    hero:
+      title: Welcome to CarHub
+      subtitle: Discover Your Dream Car Today
+      cta: Explore Cars
+    featured:
+      title: Featured Cars
+    car1:
+      title: Luxury Sedan
+      description: Experience ultimate comfort and style
+    about:
+      title: About CarHub
+      description: CarHub is your one-stop destination for all things automotive...
+    footer:
+      copyright: © 2023 CarHub. All rights reserved.
+
 main:
-    allow-bean-definition-overriding: true
+  allow-bean-definition-overriding: true

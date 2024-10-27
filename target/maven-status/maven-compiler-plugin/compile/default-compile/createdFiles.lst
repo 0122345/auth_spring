@@ -1,4 +1,5 @@
 com\company\project\service\AdminService.class
+com\task\signingentilspring\service\UserServiceImpl.class
 com\task\signingentilspring\service\EmailService.class
 com\yourpackage\service\CustomUserDetailsService.class
 com\task\signingentilspring\controller\PasswordResetController.class
@@ -6,6 +7,7 @@ com\yourpackage\model\User.class
 com\yourpackage\service\UserService.class
 com\company\project\controller\UserController.class
 com\task\signingentilspring\model\Role.class
+com\task\signingentilspring\config\CustomConfig.class
 com\task\signingentilspring\repository\UserRepository.class
 com\company\project\controller\AdminController.class
 com\company\project\service\UserService.class
@@ -16,7 +18,6 @@ com\yourpackage\controller\UserController.class
 com\company\project\repository\UserRepository.class
 com\company\project\model\User.class
 com\yourpackage\Application.class
-com\yourpackage\service\UserServiceImpl.class
 com\company\project\SignInGentilSpringApplication.class
 com\yourpackage\model\Role.class
 com\task\signingentilspring\repository\RoleRepository.class
@@ -25,3 +26,5 @@ com\company\project\config\SecurityConfig.class
 com\company\project\config\I18nConfig.class
 com\yourpackage\config\SecurityConfig.class
 com\task\signingentilspring\model\User.class
+com\task\signingentilspring\repository\PasswordResetTokenRepository.class
+com\task\signingentilspring\SignInGentilSpringApplication.class

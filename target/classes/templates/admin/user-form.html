@@ -1,52 +1,158 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>User Form</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
-<body>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #34495e;
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+      }
+
+      .btn {
+        background: #3498db;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background 0.3s ease;
+        margin-right: 10px;
+      }
+
+      .btn:hover {
+        background: #2980b9;
+      }
+
+      .btn-secondary {
+        background: #95a5a6;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-secondary:hover {
+        background: #7f8c8d;
+      }
+
+      body {
+        background: #f5f6fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1em;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          margin: 20px;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <h2 th:text="${user.id == null ? 'Create User' : 'Edit User'}"></h2>
-        <form th:action="${user.id == null ? '/admin/users/create' : '/admin/users/edit/' + user.id}" 
-              method="post" 
-              th:object="${user}">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" th:field="*{username}" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" th:field="*{email}" required>
-            </div>
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" th:field="*{firstName}" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" th:field="*{lastName}" required>
-            </div>
-            <div class="form-group">
-                <label for="dateOfBirth">Date of Birth:</label>
-                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" required>
-            </div>
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" th:field="*{phoneNumber}" required>
-            </div>
-            <div class="form-group">
-                <label for="role">Role:</label>
-                <select id="role" th:field="*{role}" required>
-                    <option th:each="role : ${T(com.yourpackage.model.Role).values()}"
-                            th:value="${role}"
-                            th:text="${role.name}">
-                    </option>
-                </select>
-            </div>
-            <button type="submit" class="btn">Save</button>
-            <a th:href="@{/admin/users}" class="btn btn-secondary">Cancel</a>
-        </form>
+      <h2 th:text="${user.id == null ? 'Create User' : 'Edit User'}"></h2>
+      <form
+        th:action="${user.id == null ? '/admin/users/create' : '/admin/users/edit/' + user.id}"
+        method="post"
+        th:object="${user}"
+      >
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" th:field="*{username}" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" th:field="*{email}" required />
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" th:field="*{firstName}" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" th:field="*{lastName}" required />
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth:</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            th:field="*{dateOfBirth}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number:</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            th:field="*{phoneNumber}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <select id="role" th:field="*{role}" required>
+            <option
+              th:each="role : ${T(com.yourpackage.model.Role).values()}"
+              th:value="${role}"
+              th:text="${role.name}"
+            ></option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Save</button>
+        <a th:href="@{/admin/users}" class="btn btn-secondary">Cancel</a>
+      </form>
     </div>
-</body>
+  </body>
 </html>
