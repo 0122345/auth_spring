@@ -11,8 +11,8 @@ public interface UserService {
     void resetPassword(String token, String newPassword);
     List<User> getAllUsers();
     Optional<User> getUserById(Long id);
-    User createUser(User user);
-    User registerUser(User user);
-    User updateUser(User user);
+    User saveUser(User user);
+    User updateUser(Long id, User user);
     void deleteUser(Long id);
+    User createUser(User user);
 }

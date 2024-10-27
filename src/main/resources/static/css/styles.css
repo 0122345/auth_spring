@@ -196,3 +196,19 @@ footer {
         padding: 20px;
     }
 }
+
+.lang-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-switcher a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.lang-switcher a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

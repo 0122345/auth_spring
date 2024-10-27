@@ -48,3 +48,36 @@ mail:
           auth: true
           starttls:
             enable: true
+servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+upload:
+  path: uploads
+
+spring:
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+messages:
+  en:
+    site.title: CarHub - Your Ultimate Car Destination
+    site.logo: CarHub
+    nav.home: Home
+    nav.featured: Featured Cars
+    nav.about: About Us
+    nav.login: Login
+    nav.signup: Sign Up
+    hero.title: Welcome to CarHub
+    hero.subtitle: Discover Your Dream Car Today
+    hero.cta: Explore Cars
+    featured.title: Featured Cars
+    car1.title: Luxury Sedan
+    car1.description: Experience ultimate comfort and style
+    about.title: About CarHub
+    about.description: CarHub is your one-stop destination for all things automotive...
+    footer.copyright: © 2023 CarHub. All rights reserved.
+main:
+    allow-bean-definition-overriding: true

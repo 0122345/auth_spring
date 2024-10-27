@@ -1,6 +1,14 @@
 package com.company.project.controller;
 
+import java.io.IOException;
+import org.springframework.http.HttpHeaders;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.Principal;
+import java.util.UUID;
+
 import jakarta.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +18,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,6 +35,9 @@ import com.company.project.service.UserService;
 @Controller
 public class UserController {
     private final UserService userService;
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     // @Autowired
     public UserController(UserService userService) {
@@ -93,5 +111,35 @@ public class UserController {
     public String listUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "admin/users";
+    }
+
+    @PostMapping("/profile/upload")
+    public String uploadProfilePic(@RequestParam("file") MultipartFile file, Principal principal) throws IOException {
+        User user = userService.findByUsername(principal.getName());
+        
+        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
+        Path uploadDir = Paths.get(uploadPath);
+        
+        if (!Files.exists(uploadDir)) {
+            Files.createDirectories(uploadDir);
+        }
+        
+        Files.copy(file.getInputStream(), uploadDir.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
+        
+        user.setProfilePicture(fileName);
+        userService.save(user);
+        
+        return "redirect:/profile";
+    }
+    
+    @GetMapping("/profile/image/{fileName}")
+    @ResponseBody
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws IOException {
+        Path filePath = Paths.get(uploadPath).resolve(fileName);
+        Resource resource = new UrlResource(filePath.toUri());
+        
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
     }
 }

@@ -62,13 +62,16 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+      <build>
+          <plugins>
+              <plugin>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-maven-plugin</artifactId>
+                  <version>3.1.4</version>
+                  <configuration>
+                      <mainClass>com.task.signingentilspring.SignInGentilSpringApplication</mainClass>
+                  </configuration>
+              </plugin>
+          </plugins>
+      </build>
+  </project>
